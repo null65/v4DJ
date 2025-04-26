@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Brown - Projects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <h1>Jack Brown</h1>
+            <p class="subtitle">Aspiring Full-Stack Developer</p>
+        </header>
+
+        <main>
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>Here are some things I've built or am currently working on:</p>
+                <div class="project-grid">
+                    <div class="project-card" data-project="site">
+                        <h3>APRS Modem</h3>
+                        <p>This Project was designed and tested by <a href="https://g4iyt.uk/">Matt!</a> All I did was put the peices together!</p>
+                        <p>A bridge between the arduino nano and any type of handheld radio, enabling the user to do APRS.</p>
+                        <button class="view-details" data-project="site">View Details</button>
+                    </div>
+                    <div class="project-card" data-project="server">
+                        <h3>Lenovo ThinkCentre M73 as a PHP web server</h3>
+                        <p>Setting up a home server for web development and hosting experiments.</p>
+                        <button class="view-details" data-project="server">View Details</button>
+                    </div>
+                    <div class="project-card" data-project="next">
+                        <h3>Maze Bank GTA V Mock website</h3>
+                        <p>A Joke started between some friends that we need our own currency!</p>
+                        <br>
+                        <a href="https://bank.driverjack.co.uk/" target="_blank">$/Bank.driverjack.co.uk</a>
+                        <button class="view-details" data-project="next">View Details</button>
+                    </div>
+                    <div class="project-card" data-project="another">
+                        <h3>More coming soon!</h3>
+                        <p>I'm busy give me a moment!</p>
+                        <button class="view-details" data-project="another">View Details</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jack Brown - Built with curiosity, Love, and code.</p>
+        </footer>
+    </div>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Project Title</h3>
+            <p id="modal-description">Project description goes here.</p>
+            <button id="close-modal">Done reading?, Have a look around!</button>
+            <br>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDescription = document.getElementById('modal-description');
+        const closeModal = document.getElementById('close-modal');
+        const contentWrapper = document.querySelector('.content-wrapper');
+        const projects = {
+            site: {
+                title: "APRS Modem",
+                description: "This DIY project brings APRS (Automatic Packet Reporting System) to compatible Baofeng and Quansheng handheld radios utilizing their Kenwood K1-style accessory port for transmit and receive. Featuring a custom-designed circuit board (by Matt, link above) and an Arduino Nano, this tracker communicates over serial to a computer running Jack's custom Python script for sending and receiving APRS data. Alternatively, it can be used with mobile apps like APRSdroid on Android devices for APRS on the go."
+            },
+            server: {
+                title: "Lenovo ThinkCentre M73 as a PHP web server",
+                description: "A home server project that involves setting up a web development environment using PHP and Apache on an old ThinkCentre computer."
+            },
+            next: {
+                title: "Maze Bank GTA V Mock website",
+                description: "Me and my mates decided it was time for our own digital currency! But we needed a sleek and fun way to manage this! This is where the Maze Bank mock started! This is not a real bank, Only a joke! this is not related to Rockstar Games in any way shape or form apart from the logo and wording."
+            },
+            another: {
+                title: "Hey! i said more coming soon!",
+                description: "hmmmmmm, I wonder what this could be? Maybe a new project? Or maybe a new website? Who knows! But for now, this is all I have to show you. Stay tuned for more updates!"
+            }
+        };
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.querySelector('.view-details').addEventListener('click', () => {
+                const projectKey = card.dataset.project;
+                const projectData = projects[projectKey];
+
+                if (projectData) {
+                    modalTitle.textContent = projectData.title;
+                    modalDescription.textContent = projectData.description;
+                    modal.classList.add('active');
+                    contentWrapper.classList.add('blurred');
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            contentWrapper.classList.remove('blurred');
+        });
+    </script>
+</body>
+</html>

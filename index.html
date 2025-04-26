@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Brown - Aspiring Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <h1>DriverJack.co.uk</h1>
+        <div class="spinner"></div>
+        <div class="prompt">Hi!</div>
+    </div>
+
+    <div class="content-wrapper" style="display: none;">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <h1>Jack Brown</h1>
+            <p class="subtitle">Aspiring Full-Stack Developer</p>
+        </header>
+
+        <main>
+            <section id="intro">
+                <h2>Welcome to the V4 Latest DriverJack website!</h2>
+                <p>Hi, First of all thanks for visiting my page.</p>
+                <p>This is my 4th! Personal website since I started getting into coding!</p>
+                <a href="https://v3.driverjack.co.uk" target="_blank">V3 DriverJack Website</a>
+                <br>
+                <a href="https://old.driverjack.co.uk" target="_blank">V2 DriverJack Website</a>
+                <br>
+                <a href="https://v1.driverjack.co.uk" target="_blank">V1 DriverJack Website <b>(The First One ever!)</b></a>
+            </section>
+
+            <section id="friends">
+                <h2>Friends of Jack!</h2>
+                <p>Shoutout to some awesome people and their projects:</p>
+                <p>
+                    <a href="https://g4iyt.uk/" target="_blank">Matt (g4iyt.uk)</a> - Showing me some cool stuff! |
+                    <a href="https://nafaneel.uk/" target="_blank">Nafaneel.uk</a> - Helping with my first website ever! |
+                    <a href="https://cptb.driverjack.co.uk/" target="_blank">CPTB Website</a> |
+                    <a href="https://rts.driverjack.co.uk/" target="_blank">RTS Website</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Jack Brown - Built with curiosity, Love, and code.</p>
+        </footer>
+    </div>
+
+    <script>    
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const contentWrapper = document.querySelector('.content-wrapper');
+
+            // Simulate loading time and then remove the loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                contentWrapper.style.display = 'block';
+                setTimeout(() => {
+                    contentWrapper.style.opacity = '1';
+                }, 100);
+
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
