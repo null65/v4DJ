@@ -25,26 +25,24 @@
         <main>
             <section id="projects">
                 <h2>Projects</h2>
-                <p>Here are some things I've built or am currently working on:</p>
+                <p>Here are some things I've done, built or am currently working on:</p>
                 <div class="project-grid">
                     <div class="project-card" data-project="site">
-                        <h3>APRS Modem</h3>
-                        <p>This Project was designed and tested by <a href="https://g4iyt.uk/">Matt!</a> All I did was put the peices together!</p>
-                        <p>A bridge between the arduino nano and any type of handheld radio, enabling the user to do APRS.</p>
-                        <button class="view-details" data-project="site">View Details</button>
+                        <h3>MeshCore Setup</h3>
+                        <p>By my friends at <a href="https://www.verulam-arc.org.uk/">VARC</a> I was introuduced to a platform called meshcore, this allows for basic text-messaging over the protocol LoRa - (Or Long range)
+                         So I bought myself a <b>Heltec V3</b> which is one of the most common and best starter boards for 868mhz.</p>
+                         <br>
+                         <p><b>UPDATE: </b>Kindly gifted by <a href="https://www.qrz.com/db/G7HMV">Matt - G7HMV</a> A second <b>Heltec V3</b> and a Vertical High gain antenna, Which is soon to be installed on my roof!</p>
+                        <br>
+                        <a href="https://meshcore.driverjack.co.uk/" target="_blank">MeshCore Status website and more in depth look.</a>
+                         <button class="view-details" data-project="site">View Details</button>
                     </div>
                     <div class="project-card" data-project="server">
                         <h3>Lenovo ThinkCentre M73 as a PHP web server</h3>
                         <p>Setting up a home server for web development and hosting experiments.</p>
                         <button class="view-details" data-project="server">View Details</button>
                     </div>
-                    <div class="project-card" data-project="next">
-                        <h3>Maze Bank GTA V Mock website</h3>
-                        <p>A Joke started between some friends that we need our own currency!</p>
-                        <br>
-                        <a href="https://bank.driverjack.co.uk/" target="_blank">$/Bank.driverjack.co.uk</a>
-                        <button class="view-details" data-project="next">View Details</button>
-                    </div>
+
                     <div class="project-card" data-project="another">
                         <h3>More coming soon!</h3>
                         <p>I'm busy give me a moment!</p>
@@ -76,16 +74,13 @@
         const contentWrapper = document.querySelector('.content-wrapper');
         const projects = {
             site: {
-                title: "APRS Modem",
-                description: "This DIY project brings APRS (Automatic Packet Reporting System) to compatible Baofeng and Quansheng handheld radios utilizing their Kenwood K1-style accessory port for transmit and receive. Featuring a custom-designed circuit board (by Matt, link above) and an Arduino Nano, this tracker communicates over serial to a computer running Jack's custom Python script for sending and receiving APRS data. Alternatively, it can be used with mobile apps like APRSdroid on Android devices for APRS on the go."
+                title: "MeshCore Setup",
+                description: "The MeshCore project is firmware that allows for basic text messaging over the LoRa protocol. It was introduced to me by my friends at VARC, and I started with a Heltec V3 board, which is popular for 868MHz communication. Recently, I was kindly gifted a second Heltec V3 and a vertical high-gain antenna by Matt - G7HMV, which will soon be installed on my roof."
             },
             server: {
                 title: "Lenovo ThinkCentre M73 as a PHP web server",
                 description: "A home server project that involves setting up a web development environment using PHP and Apache on an old ThinkCentre computer."
-            },
-            next: {
-                title: "Maze Bank GTA V Mock website",
-                description: "Me and my mates decided it was time for our own digital currency! But we needed a sleek and fun way to manage this! This is where the Maze Bank mock started! This is not a real bank, Only a joke! this is not related to Rockstar Games in any way shape or form apart from the logo and wording."
+
             },
             another: {
                 title: "Hey! i said more coming soon!",
