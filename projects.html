@@ -48,6 +48,11 @@
                         <p>On the 14th May 2024 I passed my foundation amateur radio license. I have really enjoyed having my license since I passed, I have been presented alot of oppurtunities by VARC!</p>
                         <button class="view-details" data-project="another">View Details</button>
                     </div>
+                                        <div class="project-card" data-project="2e1sub">
+                        <h3>Amateur radio license - 2E1SUB</h3>
+                        <p>On the 14th May 2024 I passed my foundation amateur radio license. I have now got my intermediate! </p>
+                        <button class="view-details" data-project="another">View Details</button>
+                    </div> 
                 </div>
             </section>
         </main>
@@ -87,7 +92,11 @@
                 description: "I am very happy with my licence, I am looking to very soon upgrade to an intermediete and then eventually a full, Which allows for higher power limits and less band restrictions. My current callsign is M7FZE"
             }
         };
-
+            2e1sub: {
+                title: "Amateur Radio Licence. #2",
+                description: "I recently passed my Intermediate, I am now allowed 100w! Under the new call 2e1sub, Thanks to all the members from the Verulam Amateur radio club for all their help and support!"
+            }
+        };
         document.querySelectorAll('.project-card').forEach(card => {
             card.querySelector('.view-details').addEventListener('click', () => {
                 const projectKey = card.dataset.project;
@@ -109,4 +118,5 @@
     </script>
 </body>
 </html>
+
 
