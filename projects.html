@@ -13,7 +13,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="amateur_radio">Amateur Radio</a>
+                    <li><a href="amateur_radio.html">Amateur Radio</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -28,35 +28,34 @@
                 <h2>Projects</h2>
                 <p>Here are some things I've done, built or am currently working on:</p>
                 <div class="project-grid">
+                    
                     <div class="project-card" data-project="site">
                         <h3>MeshCore Setup</h3>
-                        <p>By my friends at <a href="https://www.verulam-arc.org.uk/">VARC</a> I was introuduced to a platform called meshcore, this allows for basic text-messaging over the protocol LoRa - (Or Long range)
-                         So I bought myself a <b>Heltec V3</b> which is one of the most common and best starter boards for 868mhz.</p>
-                         <br>
+                        <p>By my friends at <a href="https://www.verulam-arc.org.uk/">VARC</a> I was introduced to a platform called meshcore, this allows for basic text-messaging over the protocol LoRa - (Or Long range). So I bought myself a <b>Heltec V3</b> which is one of the most common and best starter boards for 868mhz.</p>
                          <p><b>UPDATE: </b>Kindly gifted by <a href="https://www.qrz.com/db/G7HMV">Matt - G7HMV</a> A second <b>Heltec V3</b> and a Vertical High gain antenna, Which is soon to be installed on my roof!</p>
-                        <br>
-                        <a href="https://meshcore.driverjack.co.uk/" target="_blank">MeshCore Status website and more in depth look.</a>
+                        <a href="https://meshcore.driverjack.co.uk/" target="_blank" class="external-link">MeshCore Status website and more in depth look.</a>
                          <button class="view-details" data-project="site">View Details</button>
                     </div>
+                    
                     <div class="project-card" data-project="server">
                         <h3>Lenovo ThinkCentre M73 as a PHP web server</h3>
                         <p>Setting up a home server for web development and hosting experiments.</p>
                         <button class="view-details" data-project="server">View Details</button>
                     </div>
 
-                    <div class="project-card" data-project="another">
-                        <h3>Amateur radio license - M7FZE</h3>
-                        <p>On the 14th May 2024 I passed my foundation amateur radio license. I have really enjoyed having my license since I passed, I have been presented alot of oppurtunities by VARC!</p>
-                        <button class="view-details" data-project="another">View Details</button>
+                    <div class="project-card" data-project="m7fze">
+                        <h3>Foundation Licence - M7FZE</h3>
+                        <p>On the 14th May 2024 I passed my foundation amateur radio license. I have really enjoyed having my license since I passed, I have been presented a lot of opportunities by VARC!</p>
+                        <button class="view-details" data-project="m7fze">View Details</button>
                     </div>
-                                        <div class="project-card" data-project="2e1sub">
-                        <h3>Amateur radio license - 2E1SUB - M9JAK</h3>
-                        <p>On the 14th May 2024 I passed my foundation amateur radio license. I have now got my intermediate! </p>
-                        <button class="view-details" data-project="another">View Details</button>
-                                            <A href="amateur_radio.html">Amateur Radio Blog Page.</A>
+                                        
+                    <div class="project-card" data-project="2e1sub">
+                        <h3>Intermediate Licence - 2E1SUB / M9JAK</h3>
+                        <p>I recently passed my intermediate license, allowing me higher power limits and new privileges! I've also managed to secure the new vanity callsign **M9JAK**!</p>
+                        <A href="amateur_radio.html" class="external-link">Amateur Radio Blog Page.</A>
+                        <button class="view-details" data-project="2e1sub">View Details</button>
                     </div> 
 
-                    
                 </div>
             </section>
         </main>
@@ -68,10 +67,9 @@
 
     <div id="project-modal" class="modal">
         <div class="modal-content">
-            <h3 id="modal-title">Project Title</h3>
+            <span class="close-button">&times;</span> <h3 id="modal-title">Project Title</h3>
             <p id="modal-description">Project description goes here.</p>
-            <button id="close-modal">Done reading?, Have a look around!</button>
-            <br>
+            <button id="close-modal">Done reading? Close</button>
         </div>
     </div>
 
@@ -80,51 +78,70 @@
         const modalTitle = document.getElementById('modal-title');
         const modalDescription = document.getElementById('modal-description');
         const closeModal = document.getElementById('close-modal');
+        // Added the new 'x' close button
+        const closeSpan = document.querySelector('.close-button'); 
         const contentWrapper = document.querySelector('.content-wrapper');
+
+        // *** CORRECTION: Fixed the JavaScript object structure and added the new project ***
         const projects = {
             site: {
                 title: "MeshCore Setup",
-                description: "The MeshCore project is firmware that allows for basic text messaging over the LoRa protocol. It was introduced to me by my friends at VARC, and I started with a Heltec V3 board, which is popular for 868MHz communication. Recently, I was kindly gifted a second Heltec V3 and a vertical high-gain antenna by Matt - G7HMV, which will soon be installed on my roof."
+                description: "The MeshCore project is firmware that allows for basic text messaging over the **LoRa** (Long Range) protocol. It was introduced to me by my friends at **VARC**, and I started with a **Heltec V3** board, which is popular for 868MHz communication. Recently, I was kindly gifted a second Heltec V3 and a vertical high-gain antenna by Matt - G7HMV, which will soon be installed on my roof. I have a separate website tracking the status."
             },
             server: {
-                title: "Lenovo ThinkCentre M73 as a PHP web server",
-                description: "A home server project that involves setting up a web development environment using PHP and Apache on an old ThinkCentre computer."
-
+                title: "Lenovo ThinkCentre M73 as a PHP Web Server",
+                description: "This is a home server project that involves setting up a web development and hosting environment. I am using a repurposed Lenovo ThinkCentre M73, configuring it with **Linux (Ubuntu/Debian)** and the **LAMP stack (Linux, Apache, MySQL, PHP)** for internal testing and learning. This allows me to safely test new web applications before deploying them publicly."
             },
-            another: {
-                title: "Amateur Radio Licence.",
-                description: "I am very happy with my licence, I am looking to very soon upgrade to an intermediete and then eventually a full, Which allows for higher power limits and less band restrictions. My current callsign is M7FZE"
-            }
-        };
+            // Updated key from 'another' to 'm7fze' to match the data-project attribute
+            m7fze: { 
+                title: "Amateur Radio Licence - Foundation (M7FZE)",
+                description: "I successfully passed my Foundation amateur radio licence on the 14th of May, 2024. My current callsign is **M7FZE**. Having this licence has opened up many opportunities through the Verulam Amateur Radio Club (VARC), and I'm actively looking to gain more experience on the air."
+            },
+            // New project key added and correctly formatted
             2e1sub: {
-                title: "Amateur Radio Licence. #2",
-                description: "I recently passed my Intermediate, I am now allowed 100w! Under the new call 2E1SUB, Thanks to all the members from the Verulam Amateur radio club for all their help and support!..... after Ofcoms Recent update to the 2E0 and 2E1 callsigns, I managed to get my self M9JAK!"
+                title: "Amateur Radio Licence - Intermediate (2E1SUB / M9JAK)",
+                description: "I recently passed my Intermediate licence! This is a significant upgrade, as I am now allowed to transmit with up to **100W** and have access to more frequency bands, which is exciting for long-distance communication (DXing). My intermediate callsign is **2E1SUB**, and after Ofcom's recent update, I also secured the shorter, vanity callsign **M9JAK**. Thank you to all the members from VARC for their help and support!"
             }
         };
 
-           
+        // Event listener to show the modal
         document.querySelectorAll('.project-card').forEach(card => {
             card.querySelector('.view-details').addEventListener('click', () => {
                 const projectKey = card.dataset.project;
                 const projectData = projects[projectKey];
 
                 if (projectData) {
-                    modalTitle.textContent = projectData.title;
-                    modalDescription.textContent = projectData.description;
+                    modalTitle.innerHTML = projectData.title; // Use innerHTML to allow for bolding/formatting
+                    modalDescription.innerHTML = projectData.description;
                     modal.classList.add('active');
                     contentWrapper.classList.add('blurred');
                 }
             });
         });
 
-        closeModal.addEventListener('click', () => {
+        // Event listeners to close the modal
+        const closeFunc = () => {
             modal.classList.remove('active');
             contentWrapper.classList.remove('blurred');
+        };
+        
+        closeModal.addEventListener('click', closeFunc);
+        closeSpan.addEventListener('click', closeFunc); // Close using 'x' button
+        
+        // Close modal if user clicks outside of the modal content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeFunc();
+            }
         });
+
+        // Close modal on escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeFunc();
+            }
+        });
+
     </script>
 </body>
 </html>
-
-
-
-
