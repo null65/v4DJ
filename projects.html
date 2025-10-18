@@ -49,10 +49,13 @@
                         <button class="view-details" data-project="another">View Details</button>
                     </div>
                                         <div class="project-card" data-project="2e1sub">
-                        <h3>Amateur radio license - 2E1SUB</h3>
+                        <h3>Amateur radio license - 2E1SUB - M9JAK</h3>
                         <p>On the 14th May 2024 I passed my foundation amateur radio license. I have now got my intermediate! </p>
                         <button class="view-details" data-project="another">View Details</button>
+                                            <A href="amateur_radio.html">Amateur Radio Blog Page.</A>
                     </div> 
+
+                    
                 </div>
             </section>
         </main>
@@ -94,9 +97,11 @@
         };
             2e1sub: {
                 title: "Amateur Radio Licence. #2",
-                description: "I recently passed my Intermediate, I am now allowed 100w! Under the new call 2e1sub, Thanks to all the members from the Verulam Amateur radio club for all their help and support!"
+                description: "I recently passed my Intermediate, I am now allowed 100w! Under the new call 2E1SUB, Thanks to all the members from the Verulam Amateur radio club for all their help and support!..... after Ofcoms Recent update to the 2E0 and 2E1 callsigns, I managed to get my self M9JAK!"
             }
         };
+
+           
         document.querySelectorAll('.project-card').forEach(card => {
             card.querySelector('.view-details').addEventListener('click', () => {
                 const projectKey = card.dataset.project;
@@ -118,5 +123,6 @@
     </script>
 </body>
 </html>
+
 
 
