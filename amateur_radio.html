@@ -1,1 +1,340 @@
-<p>coming soon</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amateur Radio Blog (M9JAK)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    
+    <style>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'page': '#F8F8FF',
+                        'charcoal': '#333333',
+                        'accent-cyan': '#00FFFF',
+                        'accent-green': '#39FF14',
+                        'steel-blue': '#4682B4',
+                        'console-bg': '#EEEEEE',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Source Code Pro', 'monospace'],
+                    }
+                }
+            }
+        }
+        
+        .glow-text-cyan {
+            color: theme('colors.accent-cyan');
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+        }
+
+        .glow-dot-green {
+            box-shadow: 0 0 7px theme('colors.accent-green');
+            background-color: theme('colors.accent-green');
+        }
+
+        .post-card {
+            border-left: 5px solid theme('colors.steel-blue');
+            transition: transform 0.3s ease-out;
+        }
+
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qrz-iframe-container {
+            border: 1px solid theme('colors.accent-cyan');
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.5); 
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .modal-content-area {
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-page font-sans text-charcoal min-h-screen">
+
+    <header class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex flex-col md:flex-row justify-between items-center">
+            
+            <h1 class="text-3xl font-bold font-mono tracking-wider mb-2 md:mb-0">
+                <span class="glow-text-cyan">M9JAK BLOG</span>
+            </h1>
+
+            <nav class="flex space-x-4 md:space-x-8 text-lg font-mono">
+                <a href="#" class="text-charcoal hover:glow-text-cyan transition duration-200 py-1">HOME</a>
+                <span class="text-accent-cyan">|</span>
+                <a href="#projects" class="text-charcoal hover:glow-text-cyan transition duration-200 py-1">PROJECTS</a>
+                <span class="text-accent-cyan">|</span>
+                <a href="#bands" class="text-charcoal hover:glow-text-cyan transition duration-200 py-1">BANDS</a>
+                <span class="text-accent-cyan">|</span>
+                <a href="#contact" class="text-charcoal hover:glow-text-cyan transition duration-200 py-1">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <main class="md:col-span-2">
+            <h2 class="text-4xl font-bold mb-6 text-steel-blue border-b-2 border-steel-blue pb-2">Latest Log Entries</h2>
+
+            <article class="post-card bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 id="title-mesh" class="text-2xl font-bold text-steel-blue mb-2">MeshCore Repeater</h3>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4 font-mono">
+                    <span id="date-mesh">Posted: <b>18/10/2025</b></span>
+                    <span class="px-2 py-0.5 bg-console-bg rounded-full border border-gray-300">Category: Mesh Networking.</span>
+                </div>
+                <p class="text-lg leading-relaxed mb-4">
+                    I recently put up a temporary MeshCore Repeater node using a Heltec V3 with a 6db omni antenna mounted in the loft. This provides off-grid, multi-hop routing for local LoRa text messaging. The setup is performing well, good reports and solid message paths connecting through the DDRC omni and the VARC radio cabin repeater.
+                </p>
+                <a href="javascript:void(0)" onclick="openPostModal('mesh')" class="inline-block px-4 py-2 rounded-full border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black transition duration-300 shadow-md hover:shadow-[0_0_15px_rgba(0,255,255,0.7)] font-mono">
+                    View Repeater Setup &raquo;
+                </a>
+            </article>
+
+            <article class="post-card bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 id="title-ft8" class="text-2xl font-bold text-steel-blue mb-2">Coming soon.</h3>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4 font-mono">
+                    <span id="date-ft8">Posted: SOON</span>
+                    <span class="px-2 py-0.5 bg-console-bg rounded-full border border-gray-300">Category:</span>
+                </div>
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                <a href="javascript:void(0)" onclick="openPostModal('ft8')" class="inline-block px-4 py-2 rounded-full border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black transition duration-300 shadow-md hover:shadow-[0_0_15px_rgba(0,255,255,0.7)] font-mono">
+                    Read the full log entry &raquo;
+                </a>
+            </article>
+
+            <article class="post-card bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 id="title-ocf" class="text-2xl font-bold text-steel-blue mb-2">Coming soon.</h3>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4 font-mono">
+                    <span id="date-ocf">Posted: SOON</span>
+                    <span class="px-2 py-0.5 bg-console-bg rounded-full border border-gray-300">Category: </span>
+                </div>
+                <p class="text-lg leading-relaxed mb-4">
+
+                </p>
+                <a href="javascript:void(0)" onclick="openPostModal('ocf')" class="inline-block px-4 py-2 rounded-full border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-black transition duration-300 shadow-md hover:shadow-[0_0_15px_rgba(0,255,255,0.7)] font-mono">
+                    View Project Details &raquo;
+                </a>
+            </article>
+
+            <div id="full-content-mesh" class="hidden">
+                <p class="text-lg leading-relaxed mb-4">
+                    I recently deployed a dedicated MeshCore Repeater node (<a href="https://meshcore.co.uk" target="_blank" class="text-steel-blue hover:text-accent-cyan underline">MeshCore.co.uk</a>) to create a resilient, off-grid text messaging network for local enthusiasts. This decentralized, multi-hop routing platform runs on a Heltec V3 LoRa board.
+                </p>
+
+                <div class="my-6 text-center">
+                    <img src="https://placehold.co/800x400/4682B4/FFFFFF?text=Heltec+V3+Loft+Repeater" alt="Heltec V3 MeshCore Repeater Installation" class="w-full h-auto rounded-lg shadow-lg max-w-xl mx-auto border-2 border-steel-blue">
+                    <p class="text-sm text-gray-500 mt-2">The Heltec V3 repeater with the 6dB omni antenna, mounted securely in the loft.</p>
+                </div>
+
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue">Installation for Off-Grid LoRa Routing</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    The repeater node is placed high up in the loft, utilizing a 6dB gain omnidirectional antenna to ensure maximum reach and coverage for message routing. I use another Heltec V3 as a companion client node which allows me to reliably send and receive text messages on the mesh network from my shack and while portable. The setup is simple but extremely effective, and provides robust, peer-to-peer communication.
+                </p>
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue">Multi-Hop Routing Performance and Paths</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    I'm receiving great performance reports from other local users regarding message delivery. My repeater node intelligently handles multi-hop routing to extend the reach of the mesh. It reliably routes text packets through the local DDRC omni and provides a solid path to the repeater located at the VARC radio cabin, significantly expanding the network's accessible range for everyone nearby. This project has been a huge success for improving resilient, off-grid communications.
+                </p>
+            </div>
+
+            <div id="full-content-ft8" class="hidden">
+                <p class="text-lg leading-relaxed mb-4">
+                   
+                </p>
+                
+                <div class="my-6 text-center">
+                    <img src="https://placehold.co/800x400/00FFFF/000000?text=Image+Coming+Soon" alt="Photo" class="w-full h-auto rounded-lg shadow-lg max-w-xl mx-auto border-2 border-accent-cyan">
+                </div>
+
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue"></h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                </p>
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue">Coming soon</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                </p>
+            </div>
+
+            <div id="full-content-ocf" class="hidden">
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                
+                <div class="my-6 text-center">
+                    <img src="https://placehold.co/800x400/39FF14/000000?text=Image+Coming+Soon" alt="OCF Dipole Installation" class="w-full h-auto rounded-lg shadow-lg max-w-xl mx-auto border-2 border-accent-green">
+                </div>
+
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue">Coming soon</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                </p>
+                <h4 class="text-xl font-bold mt-4 mb-2 text-steel-blue">Coming soon</h4>
+                <p class="text-lg leading-relaxed mb-4">
+                    
+                </p>
+            </div>
+        </main>
+
+        <aside class="md:col-span-1">
+            <div class="p-5 rounded-lg bg-console-bg border border-steel-blue shadow-xl">
+                
+                <h2 class="text-2xl font-bold mb-4 text-charcoal border-b pb-2 border-steel-blue">
+                    <span class="font-mono glow-text-cyan">My Station</span>
+                </h2>
+
+                <section class="mb-6">
+                    <h3 class="text-xl font-bold mb-2">Operator: <span class="text-4xl font-mono text-charcoal"><a href="https://www.qrz.com/db/M9JAK" target="_blank" class="hover:glow-text-cyan transition duration-200">M9JAK</a></span></h3>
+                    <p class="flex items-center text-sm text-charcoal font-mono mb-1">
+                        <span class="h-3 w-3 rounded-full mr-2 glow-dot-green"></span>
+                        HF, VHF, UHF 
+                    </p>
+                    <p class="text-xs text-gray-400 mt-1 pl-5">
+                        (member of VARC)
+                    </p>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="text-xl font-bold mb-3 text-steel-blue">Recent Logbook Activity</h3>
+                    <div class="qrz-iframe-container bg-white">
+                        <iframe 
+                            align="top" 
+                            frameborder="0" 
+                            height="300" 
+                            scrolling="yes" 
+                            src="https://logbook.qrz.com/lbstat/M9JAK/" 
+                            width="100%"
+                            title="M9JAK QRZ Logbook">
+                        </iframe>
+                    </div>
+                    <p class="text-right text-sm mt-1">
+                        <a href="https://www.qrz.com/db/M9JAK" target="_blank" class="text-steel-blue hover:text-accent-cyan transition duration-200">View Full QRZ Profile &raquo;</a>
+                    </p>
+                </section>
+
+                <section class="mb-6 pt-4 border-t border-gray-300">
+                    <h3 class="text-xl font-bold mb-3 text-steel-blue">Current Operating Modes</h3>
+                    <ul class="text-sm space-y-2 font-mono text-charcoal">
+                        <li class="pb-1">
+                            <strong class="text-steel-blue">VHF (2m):</strong> Monitoring throughout the day (when available).
+                        </li>
+                        <li class="pb-1">
+                            <strong class="text-steel-blue">HF:</strong> Primarily 40m (Day/Night).
+                        </li>
+                        <li class="pb-1">
+                            <strong class="text-steel-blue">Digital (YSF):</strong> GB3BV C4FM Reflector.
+                        </li>
+                        <li class="pb-1">
+                            <strong class="text-steel-blue">Digital (Misc):</strong> Freestar & DMR.
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="my-station-setup">
+                    <h3 class="text-xl font-bold mb-3 text-steel-blue">Station Setup (At my QTH)</h3>
+                    <ul class="text-sm space-y-2 font-mono text-charcoal">
+                        <li class="border-b border-dashed border-gray-400 pb-1">
+                            <strong class="text-steel-blue">HF/6m/4m/VHF/UHF TX/RX:</strong> Icom IC-7100 (Loan from <a href="https://www.verulam-arc.org.uk/"><u>VARC</u></a>)
+                        </li>
+                        <li class="border-b border-dashed border-gray-400 pb-1">
+                            <strong class="text-steel-blue">Main VHF/UHF TX/RX:</strong> Yaesu FTM-100d
+                        </li>
+                        <li class="border-b border-dashed border-gray-400 pb-1">
+                            <strong class="text-steel-blue">HF Antenna:</strong> EFHW for 40m
+                        </li>
+                        <li class="border-b border-dashed border-gray-400 pb-1">
+                            <strong class="text-steel-blue">VHF/UHF Antenna:</strong> Diamond X-30
+                        </li>
+                        <li>
+                            <strong class="text-steel-blue">Software</strong> WSJTX, FLRig, Chirp, many other CPS's.
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+        </aside>
+
+    </div>
+
+    <footer class="bg-charcoal text-page py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-mono text-sm tracking-widest">&copy; 2025 M9JAK </p>
+        </div>
+    </footer>
+
+    <div id="log-entry-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-80 transition-opacity duration-300" onclick="closePostModal()">
+        <div class="flex items-start justify-center min-h-screen p-4" onclick="event.stopPropagation()">
+            <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl mt-12 p-6 md:p-8 transform transition-all duration-300">
+                
+                <div class="flex justify-between items-center border-b-2 border-steel-blue pb-3 mb-4">
+                    <h2 id="modal-title" class="text-3xl font-bold text-steel-blue">Full Log Entry</h2>
+                    <button onclick="closePostModal()" class="text-charcoal hover:text-red-500 transition duration-200 text-3xl font-mono p-1 leading-none" aria-label="Close">
+                        &times;
+                    </button>
+                </div>
+                
+                <div class="modal-content-area text-charcoal">
+                    <p id="modal-date" class="text-sm text-gray-500 mb-4 font-mono"></p>
+                    <div id="modal-content">
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-300 flex justify-end">
+                    <button onclick="closePostModal()" class="px-6 py-2 rounded-full border-2 border-steel-blue text-steel-blue hover:bg-steel-blue hover:text-white transition duration-300 font-mono">
+                        Close Log
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPostModal(postId) {
+            const modal = document.getElementById('log-entry-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDate = document.getElementById('modal-date');
+            const modalContent = document.getElementById('modal-content');
+
+            const titleElement = document.getElementById(`title-${postId}`);
+            const dateElement = document.getElementById(`date-${postId}`);
+            
+            const fullContentElement = document.getElementById(`full-content-${postId}`);
+
+            if (titleElement && fullContentElement) {
+                modalTitle.textContent = titleElement.textContent;
+                modalDate.textContent = dateElement ? dateElement.textContent : '';
+
+                modalContent.innerHTML = fullContentElement.innerHTML;
+
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.error(`Post content not found for ID: ${postId}`);
+            }
+        }
+
+        function closePostModal() {
+            const modal = document.getElementById('log-entry-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !document.getElementById('log-entry-modal').classList.contains('hidden')) {
+                closePostModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
