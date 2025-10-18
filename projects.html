@@ -78,11 +78,10 @@
         const modalTitle = document.getElementById('modal-title');
         const modalDescription = document.getElementById('modal-description');
         const closeModal = document.getElementById('close-modal');
-        // Added the new 'x' close button
         const closeSpan = document.querySelector('.close-button'); 
         const contentWrapper = document.querySelector('.content-wrapper');
 
-        // *** CORRECTION: Fixed the JavaScript object structure and added the new project ***
+        // *** CORRECTION: Fixed the JavaScript object structure and added the new projects ***
         const projects = {
             site: {
                 title: "MeshCore Setup",
@@ -92,13 +91,13 @@
                 title: "Lenovo ThinkCentre M73 as a PHP Web Server",
                 description: "This is a home server project that involves setting up a web development and hosting environment. I am using a repurposed Lenovo ThinkCentre M73, configuring it with **Linux (Ubuntu/Debian)** and the **LAMP stack (Linux, Apache, MySQL, PHP)** for internal testing and learning. This allows me to safely test new web applications before deploying them publicly."
             },
-            // Updated key from 'another' to 'm7fze' to match the data-project attribute
             m7fze: { 
+                // Changed key from 'another' to 'm7fze' to match the data-project attribute
                 title: "Amateur Radio Licence - Foundation (M7FZE)",
                 description: "I successfully passed my Foundation amateur radio licence on the 14th of May, 2024. My current callsign is **M7FZE**. Having this licence has opened up many opportunities through the Verulam Amateur Radio Club (VARC), and I'm actively looking to gain more experience on the air."
             },
-            // New project key added and correctly formatted
             2e1sub: {
+                // New project key added and correctly formatted
                 title: "Amateur Radio Licence - Intermediate (2E1SUB / M9JAK)",
                 description: "I recently passed my Intermediate licence! This is a significant upgrade, as I am now allowed to transmit with up to **100W** and have access to more frequency bands, which is exciting for long-distance communication (DXing). My intermediate callsign is **2E1SUB**, and after Ofcom's recent update, I also secured the shorter, vanity callsign **M9JAK**. Thank you to all the members from VARC for their help and support!"
             }
@@ -111,7 +110,7 @@
                 const projectData = projects[projectKey];
 
                 if (projectData) {
-                    modalTitle.innerHTML = projectData.title; // Use innerHTML to allow for bolding/formatting
+                    modalTitle.innerHTML = projectData.title;
                     modalDescription.innerHTML = projectData.description;
                     modal.classList.add('active');
                     contentWrapper.classList.add('blurred');
@@ -119,14 +118,15 @@
             });
         });
 
-        // Event listeners to close the modal
+        // Function to close the modal
         const closeFunc = () => {
             modal.classList.remove('active');
             contentWrapper.classList.remove('blurred');
         };
         
+        // Event listeners to close the modal
         closeModal.addEventListener('click', closeFunc);
-        closeSpan.addEventListener('click', closeFunc); // Close using 'x' button
+        closeSpan.addEventListener('click', closeFunc); 
         
         // Close modal if user clicks outside of the modal content
         modal.addEventListener('click', (e) => {
@@ -141,7 +141,6 @@
                 closeFunc();
             }
         });
-
     </script>
 </body>
 </html>
